@@ -13,27 +13,27 @@ const LoginPage = () => {
   const handleSendOTP = async () => {
     try {
       const response = await axios.post('https://email-sending-and-verification.onrender.com/user/signup', {
-        userEmail: email // Include the email to which OTP needs to be sent
+        userEmail: email 
       });
       console.log('OTP Sent:', response.data);
-      // Handle success - maybe show a message that OTP has been sent
+      
     } catch (error) {
       console.error('Error sending OTP:', error);
-      // Handle error scenarios
+      
     }
   };
 
   const handleVerifyOTP = async () => {
     try {
       const response = await axios.post('https://email-sending-and-verification.onrender.com/emailverify/signup', {
-        userEmail: email, // Include the email for which OTP is being verified
-        otp: otpCode // Include the OTP entered by the user
+        userEmail: email, 
+        otp: otpCode 
       });
       console.log('OTP Verified:', response.data);
-      // Handle success - maybe proceed with login or some action
+      
     } catch (error) {
       console.error('Error verifying OTP:', error);
-      // Handle error scenarios
+      
     }
   };
 
@@ -60,6 +60,7 @@ const LoginPage = () => {
       <button onClick={handleVerifyOTP} className="verify-otp-btn">
         Verify OTP
       </button>
+      <Link to="register">Register</Link>
     </div>
   );
 };
