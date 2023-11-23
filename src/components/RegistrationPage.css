@@ -7,11 +7,13 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  margin-left: 450px;
+  
   }
 
 .registration-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 200px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -51,7 +53,56 @@
     cursor: pointer;
   }
   
-  .registration-container button:hover {
+  /* .registration-container button:hover {
     background-color: #45a049;
+  } */
+  .registertext1{
+    font-size: 18px;
+    padding-top: 10px;
+    margin-top: 20px;
   }
-  
+  .submitbtn{
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: yellowgreen;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .submitbtn:hover{
+    background-color: rgb(146, 152, 135);
+  }
+  .registertag{
+    font-size: x-large;
+    font-weight: 800px;
+    padding-bottom: 200px;
+    
+  }
+  .registertag2{
+    font-size: x-large;
+    font-weight: 800px;
+    padding-bottom: 200px;
+    
+  }
+  .textarea{
+      font-weight: 600;
+      font-size: 100px;
+  }
+  .registertext2{
+    font-size: 18px;
+    padding-top: 10px;
+    margin-top: 20px;
+  }
+  .registertext3{
+    font-size: 18px;
+    padding-top: 10px;
+    margin-top: 20px;
+  }
+  .registertext4{
+    font-size: 18px;
+    padding-top: 0px;
+    margin-top: 20px;
+  }

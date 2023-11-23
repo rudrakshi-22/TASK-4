@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 
+
+ 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [otpCode, setOtpCode] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,7 +19,7 @@ const LoginPage = () => {
       const response = await axios.post('https://email-sending-and-verification.onrender.com/user/signup', {
         userEmail: email 
       });
-      console.log('OTP Sent:', response.data);
+      alert(response.data["msg"]);
       
     } catch (error) {
       console.error('Error sending OTP:', error);
@@ -29,11 +33,12 @@ const LoginPage = () => {
         userEmail: email, 
         otp: otpCode 
       });
-      console.log('OTP Verified:', response.data);
-      
+      if (response.data == "Email verified successfully!") {
+        console.log('OTP Verified:', response.data);
+        navigate('/register');
+      }
     } catch (error) {
       console.error('Error verifying OTP:', error);
-      
     }
   };
 
@@ -60,7 +65,7 @@ const LoginPage = () => {
       <button onClick={handleVerifyOTP} className="verify-otp-btn">
         Verify OTP
       </button>
-      <Link to="register">Register</Link>
+      <a href="register">Open Register Page</a>
     </div>
   );
 };

@@ -1,8 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import './RegistrationPage.css';
 
 const RegistrationPage = () => {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
     UserName: '',
     UserPhonenumber: '',
@@ -10,46 +14,45 @@ const RegistrationPage = () => {
     UserBio: ''
   });
 
-  useEffect(() => {
-    
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get('https://email-sending-and-verification.onrender.com/User/Registration'); 
-       
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
+  const submitUserData = async () => {
+    try {
+      const response = await axios.post('https://email-sending-and-verification.onrender.com/User/Registration', userData);
+      if (response.status == 200) {
+        console.log('User Registered', response.data);
+        navigate('/thankyou');
       }
-    };
-
-    fetchUserData();
-  }, []);
+    } catch(error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
 
   return (
     <div>
-      <h1>Registration</h1>
-      <form>
+      <h1 className='textarea'>Registration</h1>
+      <div>
         <div>
-          <label>Name:</label>
-          <input type="text" value={userData.UserName} readOnly />
+          <label className='registertag'>Name:</label>
+          <input className="registertext2" type="text" value={userData.UserName} onChange={(e) => setUserData({...userData, UserName: e.target.value})} />
+      
         </div>
         <div>
-          <label>Phone Number:</label>
-          <input type="text" value={userData.UserPhonenumber} readOnly />
+          <label className='registertag'>Phone Number:</label>
+          <input className="registertext3" type="text" value={userData.UserPhonenumber} onChange={(e) => setUserData({...userData, UserPhonenumber: e.target.value})} /> 
         </div>
         <div>
-          <label>Gender:</label>
-          <input type="text" value={userData.UserGender} readOnly />
+          <label className='registertag'>Gender:</label> <br>
+          </br>
+          <input className="registertext1 " type="text" value={userData.UserGender} onChange={(e) => setUserData({...userData, UserGender: e.target.value})} /><br></br>
         </div>
         <div>
-          <label>Bio:</label>
-          <textarea value={userData.UserBio} readOnly />
+          <label className='registertag'>Bio:</label>
+          < textarea  className="registertext4" value={userData.UserBio} onChange={(e) => setUserData({...userData, UserBio: e.target.value})} /> 
         </div>
        
-        <button type="submit">Register</button>
-      </form>
-      <Link to="/">Login</Link> 
-      <Link to="/thankyou">Thank You</Link> 
+        <button className="submitbtn" onClick={submitUserData}>Register</button>
+      </div>
+      <a href="/" className='text'>Login</a> <br></br>
+      <a href="/thankyou" className='text'>Thank You</a> 
     </div>
   );
 };
