@@ -29,7 +29,7 @@ const RegistrationPage = () => {
   return (
     <div>
       <h1 className='textarea'>Registration</h1>
-      <div>
+      <div className='registrationcontainer'>
         <div>
           <label className='registertag'>Name:</label>
           <input className="registertext2" type="text" value={userData.UserName} onChange={(e) => setUserData({...userData, UserName: e.target.value})} />
@@ -51,8 +51,6 @@ const RegistrationPage = () => {
        
         <button className="submitbtn" onClick={submitUserData}>Register</button>
       </div>
-      <a href="/" className='text'>Login</a> <br></br>
-      <a href="/thankyou" className='text'>Thank You</a> 
     </div>
   );
 };

@@ -65,7 +65,7 @@ const LoginPage = () => {
       <button onClick={handleVerifyOTP} className="verify-otp-btn">
         Verify OTP
       </button>
-      <a href="register">Open Register Page</a>
+
     </div>
   );
 };

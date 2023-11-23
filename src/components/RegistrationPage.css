@@ -59,7 +59,7 @@
   .registertext1{
     font-size: 18px;
     padding-top: 10px;
-    margin-top: 20px;
+    margin-top: 1px;
   }
   .submitbtn{
     margin-bottom: 10px;
@@ -76,9 +76,9 @@
     background-color: rgb(146, 152, 135);
   }
   .registertag{
-    font-size: x-large;
+    display: flex;
     font-weight: 800px;
-    padding-bottom: 200px;
+   
     
   }
   .registertag2{
@@ -94,15 +94,18 @@
   .registertext2{
     font-size: 18px;
     padding-top: 10px;
-    margin-top: 20px;
+    margin-top: 2px;
   }
   .registertext3{
     font-size: 18px;
     padding-top: 10px;
-    margin-top: 20px;
+    margin-top: 2px;
   }
   .registertext4{
     font-size: 18px;
     padding-top: 0px;
-    margin-top: 20px;
+    margin-top: 2px;
+  }
+  .registrationcontainer{
+    margin-left: 170px;
   }

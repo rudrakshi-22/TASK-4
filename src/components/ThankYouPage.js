@@ -1,4 +1,5 @@
 import React from 'react';
+import'./ThankYouPage.css';
 
 const ThankYouPage = () => {
   return (
